@@ -7,7 +7,7 @@ public class Aeroporto {
 	public Aeroporto(String codAeroporto, Endereco endereco) {
 		super();
 		setCodAeroporto(codAeroporto);
-		this.endereco = endereco;
+		setEndereco(endereco);
 	}
 	
 	public String getCodAeroporto() {
@@ -22,5 +22,12 @@ public class Aeroporto {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
+
+	@Override
+	public String toString() {
+		return "Codigo do Aeroporto: " + codAeroporto + "\nCidade do Aeroporto: " + endereco.getCidade();
+	}
+	
+	
 	
 }

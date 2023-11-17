@@ -1,3 +1,14 @@
+import java.util.*;
+
+class ComparaPorNome implements Comparator<Passagem>{
+
+	@Override
+	public int compare(Passagem o1, Passagem o2) {
+		return ((Passagem) o1).getPassageiro().getNome().compareTo(((Passagem) o2).getPassageiro().getNome());
+	}
+	
+}
+
 public class Passagem {
     private Voo vooIda;
     private Voo vooVolta;
@@ -6,15 +17,14 @@ public class Passagem {
     private String assento;
     
     public Passagem(Voo vooIda, String numero, Voo vooVolta, Passageiro passageiro, String assento) {
-        setVooIda(vooIda);
-        setVooVolta(vooVolta);
+    	verificarCapacidade();
         setNumero(numero);
         setPassageiro(passageiro);
         setAssento(assento);
     }
 
         public Passagem(Voo vooIda, String numero, Passageiro passageiro, String assento) {
-        setVooIda(vooIda);
+        verificarCapacidade();
         setNumero(numero);
         setPassageiro(passageiro);
         setAssento(assento);
@@ -49,6 +59,19 @@ public class Passagem {
     }
     public void setAssento(String assento) {
         this.assento = assento;
+    }
+    
+    
+    public boolean verificarCapacidade() {
+    	if(vooIda.getCapacidade() == 0 || vooVolta.getCapacidade() == 0) {
+    		System.out.println("Voo sem disponibilidade :(");
+    		return false;
+    	}
+    	else {
+    		setVooIda(vooIda);
+    		setVooVolta(vooIda);
+    		return true;
+    	}
     }
     
 }

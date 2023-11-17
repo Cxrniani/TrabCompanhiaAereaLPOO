@@ -19,4 +19,12 @@ public class CompanhiaAerea {
     public void setNomeCompanhia(String nomeCompanhia) {
         this.nomeCompanhia = nomeCompanhia;
     }
+
+	@Override
+	public String toString() {
+		return "CompanhiaAerea [getCodCompan()=" + getCodCompan() + ", getNomeCompanhia()=" + getNomeCompanhia() + "]";
+	}
+
+    
+
 }

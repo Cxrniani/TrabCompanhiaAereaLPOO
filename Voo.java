@@ -53,5 +53,13 @@ public class Voo {
     public void setCapacidade(int capacidade) {
         this.capacidade = capacidade;
     }
+	
+    @Override
+	public String toString() {
+		return "Voo [getNumVoo()=" + getNumVoo() + ", getOrigem()=" + getOrigem() + ", getDestino()=" + getDestino()
+				+ ", getDataHoraOrigem()=" + getDataHoraOrigem() + ", getDataHoraDestino()=" + getDataHoraDestino()
+				+ ", getCapacidade()=" + getCapacidade() + "]";
+	}
+    
     
 }

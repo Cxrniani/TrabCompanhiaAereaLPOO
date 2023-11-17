@@ -11,5 +11,11 @@ public class Passageiro extends Pessoa{
 	public void setNumPassaporte(String numPassaporte) {
 		this.numPassaporte = numPassaporte;
 	}
+	@Override
+	public String toString() {
+		return "Nome Passageiro: " + getNome() + "\nRG passageiro: " + getRg();
+	}
+	
+	
 
 }
