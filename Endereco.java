@@ -1,3 +1,5 @@
+import java.util.InputMismatchException;
+
 public class Endereco {
 	
 
@@ -31,7 +33,11 @@ public class Endereco {
 		return numero;
 	}
 	public void setNumero(int numero) {
-		this.numero = numero;
+		try {
+			this.numero = numero;
+		} catch (InputMismatchException e) {
+    		System.err.print("Erro ao inserir valor inteiro.");
+    	}
 	}
 	public String getBairro() {
 		return bairro;

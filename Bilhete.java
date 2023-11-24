@@ -1,6 +1,5 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+
 
 public class Bilhete<T> {
 	
@@ -52,9 +51,9 @@ public class Bilhete<T> {
 	
 	public void imprimirBilhete() {
 		Collections.sort(listPassagem, new ComparaPorNome());
-		for (int i = 0; i < listPassagem.size(); i++) {
-			System.out.println(listPassagem.get(i));
-		}
+		System.out.println("Número do Bilhete: " + getNumBilhete() + 
+				"\nPreço: " + getPreco() + "\nCompanhia Responsável: " + getCompanhiaAerea().getNomeCompanhia()
+				+ "\n" + listPassagem.toString().replace("[", "").replace("]", "")); // replace para formatar
 	}
 
 	

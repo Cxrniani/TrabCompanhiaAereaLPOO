@@ -1,4 +1,5 @@
 import java.util.Calendar;
+import java.util.InputMismatchException;
 
 public class Voo {
     private String numVoo;
@@ -51,13 +52,17 @@ public class Voo {
         return capacidade;
     }
     public void setCapacidade(int capacidade) {
-        this.capacidade = capacidade;
+    	try {
+    		this.capacidade = capacidade;
+    	} catch (InputMismatchException e) {
+    		System.err.print("Erro ao inserir valor inteiro.");
+    	}
     }
 	
     @Override
 	public String toString() {
 		return "Voo [getNumVoo()=" + getNumVoo() + ", getOrigem()=" + getOrigem() + ", getDestino()=" + getDestino()
-				+ ", getDataHoraOrigem()=" + getDataHoraOrigem() + ", getDataHoraDestino()=" + getDataHoraDestino()
+				+ ", getDataHoraOrigem()=" + getDataHoraOrigem().getTime() + ", getDataHoraDestino()=" + getDataHoraDestino().getTime()
 				+ ", getCapacidade()=" + getCapacidade() + "]";
 	}
     

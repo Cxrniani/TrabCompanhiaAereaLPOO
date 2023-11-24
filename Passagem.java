@@ -4,7 +4,7 @@ class ComparaPorNome implements Comparator<Passagem>{
 
 	@Override
 	public int compare(Passagem o1, Passagem o2) {
-		return ((Passagem) o1).getPassageiro().getNome().compareTo(((Passagem) o2).getPassageiro().getNome());
+		return  o1.getPassageiro().getNome().compareTo(o2.getPassageiro().getNome());
 	}
 	
 }
@@ -17,14 +17,15 @@ public class Passagem {
     private String assento;
     
     public Passagem(Voo vooIda, String numero, Voo vooVolta, Passageiro passageiro, String assento) {
-    	verificarCapacidade();
+    	setVooIda(vooIda);
+    	setVooVolta(vooVolta);
         setNumero(numero);
         setPassageiro(passageiro);
         setAssento(assento);
     }
 
         public Passagem(Voo vooIda, String numero, Passageiro passageiro, String assento) {
-        verificarCapacidade();
+        setVooIda(vooIda);
         setNumero(numero);
         setPassageiro(passageiro);
         setAssento(assento);
@@ -34,13 +35,22 @@ public class Passagem {
         return vooIda;
     }
     public void setVooIda(Voo vooIda) {
-        this.vooIda = vooIda;
+    	if(verificarCapacidade(vooIda)) {
+            this.vooIda = vooIda;
+        	}
+        	else {
+        		System.err.println("Voo cheio :(");
+        	}
     }
     public Voo getVooVolta() {
         return vooVolta;
     }
     public void setVooVolta(Voo vooVolta) {
-        this.vooVolta = vooVolta;
+    	if (verificarCapacidade(vooVolta)) {
+            this.vooVolta = vooVolta;
+        } else {
+            System.err.println("Voo de ida cheio :(");
+        }
     }
     public String getNumero() {
         return numero;
@@ -62,16 +72,19 @@ public class Passagem {
     }
     
     
-    public boolean verificarCapacidade() {
-    	if(vooIda.getCapacidade() == 0 || vooVolta.getCapacidade() == 0) {
-    		System.out.println("Voo sem disponibilidade :(");
-    		return false;
-    	}
-    	else {
-    		setVooIda(vooIda);
-    		setVooVolta(vooIda);
+    public boolean verificarCapacidade(Voo voo) {
+    	if(voo.getCapacidade() > 0) {
     		return true;
     	}
+    	else {
+    		return false;
+    	}
     }
+
+	@Override
+	public String toString() {
+		return "Número do Voo: " + getVooIda().getNumVoo() + "\nNúmero da passagem: "
+				+ getNumero() + "\nNome do Passageiro: " + getPassageiro().getNome() + "\nNúmero do assento: " + getAssento() + "//";
+	}
     
 }

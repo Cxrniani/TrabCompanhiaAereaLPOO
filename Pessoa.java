@@ -14,7 +14,7 @@ public abstract class Pessoa implements Verificavel {
 	public Pessoa(String nome, String cpf, String rg, Endereco endereco, String celular, String dataNascimento) {
 		super();
 		setNome(nome);
-		validar(getCpf());
+		setCpf(cpf);
 		setRg(rg);
 		setEndereco(endereco);
 		setCelular(celular);
@@ -35,7 +35,12 @@ public abstract class Pessoa implements Verificavel {
 	}
 
 	public void setCpf(String cpf) {
-		this.cpf = cpf;
+		if(validar(cpf) == true) {
+			this.cpf = cpf;
+		}
+		else {
+			solicitarNovo();
+		}
 	}
 
 	public String getRg() {
@@ -79,13 +84,10 @@ public abstract class Pessoa implements Verificavel {
 	
 	@Override
 	public boolean validar(String cpf) {
-		cpf = this.getCpf();
 		if(cpf.length() != 11) {
-			solicitarNovo();
 			return false;
 		}
 		else {
-			setCpf(this.cpf);
 			return true;
 		}
 		
