@@ -64,11 +64,7 @@ public class Voo {
 	}
 
 	public void setCapacidade(int capacidade) {
-		try {
 			this.capacidade = capacidade;
-		} catch (InputMismatchException e) {
-			System.err.print("Erro ao inserir valor inteiro.");
-		}
 	}
 
 	@Override
