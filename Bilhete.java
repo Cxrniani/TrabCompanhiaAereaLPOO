@@ -1,14 +1,12 @@
 import java.util.*;
 
-
 public class Bilhete<T> {
-	
+
 	private T numBilhete;
 	private List<Passagem> listPassagem = new ArrayList<Passagem>();
 	private double preco;
 	private CompanhiaAerea CompanhiaAerea;
 
-	
 	public Bilhete(T numBilhete, List<Passagem> listPassagem, double preco, CompanhiaAerea companhiaAerea) {
 		super();
 		this.numBilhete = numBilhete;
@@ -16,7 +14,7 @@ public class Bilhete<T> {
 		this.preco = preco;
 		CompanhiaAerea = companhiaAerea;
 	}
-	
+
 	public T getNumBilhete() {
 		return numBilhete;
 	}
@@ -48,14 +46,12 @@ public class Bilhete<T> {
 	public void setCompanhiaAerea(CompanhiaAerea companhiaAerea) {
 		CompanhiaAerea = companhiaAerea;
 	}
-	
+
 	public void imprimirBilhete() {
 		Collections.sort(listPassagem, new ComparaPorNome());
-		System.out.println("Número do Bilhete: " + getNumBilhete() + 
-				"\nPreço: " + getPreco() + "\nCompanhia Responsável: " + getCompanhiaAerea().getNomeCompanhia()
-				+ "\n" + listPassagem.toString().replace("[", "").replace("]", "")); // replace para formatar
+		System.out.println("Número do Bilhete: " + getNumBilhete() + "\nPreço: " + getPreco()
+				+ "\nCompanhia Responsável: " + getCompanhiaAerea().getNomeCompanhia() + "\n"
+				+ listPassagem.toString().replace("[", "").replace("]", "")); // replace para formatar
 	}
 
-	
-    
 }

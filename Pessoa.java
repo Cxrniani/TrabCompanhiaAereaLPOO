@@ -1,16 +1,16 @@
 import java.util.Scanner;
 
 public abstract class Pessoa implements Verificavel {
-	
+
 	Scanner sc = new Scanner(System.in);
 
-	private String nome; 
-	private String cpf; 
-	private String rg; 
-	private Endereco endereco; 
-	private String celular; 
+	private String nome;
+	private String cpf;
+	private String rg;
+	private Endereco endereco;
+	private String celular;
 	private String dataNascimento;
-	
+
 	public Pessoa(String nome, String cpf, String rg, Endereco endereco, String celular, String dataNascimento) {
 		super();
 		setNome(nome);
@@ -21,7 +21,7 @@ public abstract class Pessoa implements Verificavel {
 		setDataNascimento(dataNascimento);
 
 	}
-	
+
 	public String getNome() {
 		return nome;
 	}
@@ -35,10 +35,9 @@ public abstract class Pessoa implements Verificavel {
 	}
 
 	public void setCpf(String cpf) {
-		if(validar(cpf)) {
+		if (validar(cpf)) {
 			this.cpf = cpf;
-		}
-		else {
+		} else {
 			solicitarNovo();
 		}
 	}
@@ -74,23 +73,22 @@ public abstract class Pessoa implements Verificavel {
 	public void setDataNascimento(String dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
-	
+
 	@Override
 	public void solicitarNovo() {
 		System.out.println("Digite seu CPF novamente: ");
 		this.setCpf(sc.nextLine());
 		validar(this.cpf);
 	}
-	
+
 	@Override
 	public boolean validar(String cpf) {
-		if(cpf.length() != 11) {
+		if (cpf.length() != 11) {
 			return false;
-		}
-		else {
+		} else {
 			return true;
 		}
-		
+
 	}
-	
+
 }
