@@ -4,6 +4,9 @@ import java.util.*;
 public class Main {
 
 	public static void main(String args[]) {
+		try {
+		Scanner sc = new Scanner(System.in);
+		int teste = sc.nextInt();		
 		Endereco e1 = new Endereco("Palhaco de monociclo", 666, "Das laranjeiras", "Pirapora do norte", "79080502");
 
 		Endereco e2 = new Endereco("Jujuba de cera", 123, "Beco diagonal", "Hogwarts", "79080503");
@@ -12,10 +15,10 @@ public class Main {
 
 		Endereco e4 = new Endereco("Pepe moreno", 654, "Orelhao da rua", "Macaubas", "79080505");
 
-		Endereco e5 = new Endereco("Tacaca", 655, "Joelma do Calypso", "Almeirim", "79080506");
+		Endereco e5 = new Endereco("Tacaca", teste, "Joelma do Calypso", "Almeirim", "79080506");
 
 		Endereco e6 = new Endereco("Afonso Pena", 656, "Centro", "Campo Grande", "79080508");
-
+		
 		Aeroporto a1 = new Aeroporto("1", e4);
 		Aeroporto a2 = new Aeroporto("2", e2);
 		Aeroporto a3 = new Aeroporto("3", e5);
@@ -32,7 +35,9 @@ public class Main {
 		Calendar hdestino3 = Calendar.getInstance();
 		Calendar horigem4 = Calendar.getInstance();
 		Calendar hdestino4 = Calendar.getInstance();
-		hdestino1.add(hdestino1.HOUR, 10); // mostra que o destino será após 10 horas da partida (só pra ficar mais realista) 
+		
+		// adiciona diferença nos horários de partida e chegada (só pra ficar mais realista)
+		hdestino1.add(hdestino1.HOUR, 10); 
 		hdestino2.add(hdestino2.HOUR, 15);
 		hdestino3.add(hdestino3.HOUR, 13);
 		hdestino4.add(hdestino4.HOUR, 12);
@@ -60,6 +65,7 @@ public class Main {
 				"543210");
 		Passageiro p10 = new Passageiro("Roberto Souza", "45678901111", "678901", e6, "6799000000", "08/04/1992",
 				"678901");
+		
 
 		Passagem pass1 = new Passagem(v1, "1", p1, "Assento 1");
 		Passagem pass2 = new Passagem(v2, "2", p2, "Assento 2");
@@ -92,6 +98,7 @@ public class Main {
 		Bilhete<String> b3 = new Bilhete<String>("3", array3, 1300, ca3);
 		Bilhete<String> b4 = new Bilhete<String>("4", array4, 1400, ca1);
 		
+		
 		System.out.println("---------------BILHETE 1---------------");
 		b1.imprimirBilhete();
 		System.out.println("\n");
@@ -103,7 +110,10 @@ public class Main {
 		System.out.println("\n");
 		System.out.println("---------------BILHETE 4---------------");
 		b4.imprimirBilhete();
-		
+		}catch (InputMismatchException e) {
+			System.err.println("Valor inserido não é um inteiro");
+		}
+		} 
 	}
 
-}
+

@@ -35,7 +35,7 @@ public abstract class Pessoa implements Verificavel {
 	}
 
 	public void setCpf(String cpf) {
-		if(validar(cpf) == true) {
+		if(validar(cpf)) {
 			this.cpf = cpf;
 		}
 		else {

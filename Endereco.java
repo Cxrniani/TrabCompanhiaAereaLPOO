@@ -33,11 +33,7 @@ public class Endereco {
 		return numero;
 	}
 	public void setNumero(int numero) {
-		try {
-			this.numero = numero;
-		} catch (InputMismatchException e) {
-    		System.err.print("Erro ao inserir valor inteiro.");
-    	}
+		this.numero = numero;
 	}
 	public String getBairro() {
 		return bairro;

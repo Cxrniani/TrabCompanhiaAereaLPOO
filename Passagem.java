@@ -39,7 +39,7 @@ public class Passagem {
             this.vooIda = vooIda;
         	}
         	else {
-        		System.err.println("Voo cheio :(");
+        		System.err.println("Voo de ida cheio :(");
         	}
     }
     public Voo getVooVolta() {
@@ -49,7 +49,7 @@ public class Passagem {
     	if (verificarCapacidade(vooVolta)) {
             this.vooVolta = vooVolta;
         } else {
-            System.err.println("Voo de ida cheio :(");
+            System.err.println("Voo de volta cheio :(");
         }
     }
     public String getNumero() {

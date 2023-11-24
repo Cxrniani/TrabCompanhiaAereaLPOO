@@ -4,7 +4,7 @@ import java.util.*;
 public class Bilhete<T> {
 	
 	private T numBilhete;
-	private List<Passagem> listPassagem = new ArrayList<>();
+	private List<Passagem> listPassagem = new ArrayList<Passagem>();
 	private double preco;
 	private CompanhiaAerea CompanhiaAerea;
 
